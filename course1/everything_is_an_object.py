@@ -2,7 +2,6 @@
 
 import sys  # importing the standart library `sys`.
 
-__author__ = 'sobolevn'
 
 
 print(sys.version_info)
