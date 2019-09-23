@@ -1,0 +1,41 @@
+{% extends "_basic_template.txt" %}
+
+
+{% block main %}
+    {{ another_data }}
+    This report is created by {{ my_name() }} to show that it is as easy as {{
+        filter(map(reduce([1,2,3])))
+        }} or {{ some_var }}.
+
+    {% include "_header.txt" %}
+
+    Report itself:
+
+    {% for row in data %}
+       Report row is: {{ row }}
+       {% if row > 10 %}
+          Row is bigger than 10
+       {% else %}
+          Row is small
+       {% endif %}
+    {% endfor %}
+
+    Different functions of Jinja2 templates:
+
+    Main page content. {{ passing_variable(192) }}
+    {{ "Very long text, some extras"|truncate(14) }}
+
+
+{% endblock %}
+
+
+{% block footer %}
+
+    BEFORE_FOOTER
+
+{{ super() }}
+
+    AFTER_FOOTER
+
+
+{% endblock %}
