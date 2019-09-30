@@ -1,0 +1,23 @@
+.texts {
+    color: green;
+}
+
+body > .texts {
+    color: red;
+}
+
+body .texts p {
+    color: bisque;
+}
+
+body div.texts {
+    color: #00b3ee;
+}
+
+.texts {
+    color: moccasin;
+}
+
+li + li {
+    background: blue;
+}
