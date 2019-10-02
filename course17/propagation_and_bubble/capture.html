@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div class="d1">1
+    <div class="d2">2
+        <div class="d3">3
+        </div>
+    </div>
+</div>
+
+<script type="application/javascript">
+    function highlightThis(event) {
+        event = event || window.event;
+
+        var target = event.target || event.srcElement;
+        alert("target = " + target.className + ", this=" + this.className);
+    }
+
+    var divs = document.getElementsByTagName('div');
+
+    for(var i=0; i<divs.length; i++) {
+        // divs[i].addEventListener("click", highlightThis, true);
+        divs[i].addEventListener("click", highlightThis, false);
+    }
+</script>
+
+</body>
+</html>

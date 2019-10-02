@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+    <span id="info"></span>
+
+</div>
+
+<script type="application/javascript" src="https://unpkg.com/jquery@3.3.1"></script>
+
+<script type="application/javascript">
+    'use strict';
+
+    (function (window, document, $) {
+
+        $(document).ready(function() {
+            var content = $('#info');
+
+            content.text('content text');
+
+            var button = $('<button>').addClass('content-button').text('Press me!');
+
+            button.click(function () {
+                content.css('background', 'red');
+                console.log(content, button);
+            });
+
+            content.append(button);
+        });
+    })
+    (window, document, jQuery);
+</script>
+
+</body>
+</html>

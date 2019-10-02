@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Events Demo</title>
+</head>
+
+<body>
+<main>
+    <button id="click-me">
+        <p>Click me!</p>
+    </button>
+</main>
+
+<script type="application/javascript">
+    'use strict';
+
+    (function (window, document) {
+        document.addEventListener('DOMContentLoaded', function() {
+            // var button = document.getElementById('click-me');
+            var button = document.querySelector('#click-me');
+
+            button.addEventListener('click', function() {
+                alert('Clicked!');
+            });
+        });
+    })(window, document);
+</script>
+
+</body>
+</html>

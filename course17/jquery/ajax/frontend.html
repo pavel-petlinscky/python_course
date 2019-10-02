@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+    .success {
+        background-color: green;
+    }
+    .failed {
+        background-color: red;
+    }
+</style>
+<body>
+
+<div class="requests">
+    <ul class="results">
+        <div>dsfsg</div>
+    </ul>
+    <button id="make-request">Request</button>
+</div>
+
+<script type="application/javascript" src="https://unpkg.com/jquery@3.3.1"></script>
+<script type="application/javascript">
+    'use strict';
+
+    (function (window, document, $) {
+
+        function sendRequest(param) {
+            //var results = $('.results', '.requests');
+            //var results = $('.requests').find('.results');
+
+            var request = $.ajax({
+                url: 'http://127.0.0.1:5000/ajax/' + param,
+                crossDomain: true,
+                dataType: 'json'
+            });
+
+            function req_handler(data, textStatus, jqXHR) {
+                console.log(param);
+                console.log(data, textStatus, jqXHR);
+                var result = $('<li>').addClass('success').text('+1');
+                results.append(result);
+            }
+
+            request.done(function  (data, textStatus, jqXHR) {
+                console.log(param);
+                console.log(data, textStatus, jqXHR);
+                var result = $('<li>').addClass('success').text('+1');
+                results.append(result);
+            });
+
+            request.fail(function (jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR, textStatus, errorThrown);
+                var result = $('<li>').addClass('failed').text('=(');
+                results.append(result);
+            });
+        }
+
+        $(document).ready(function() {
+            var params = ['success', 'other'];
+
+            $('#make-request').click(function() {
+                sendRequest(params[Math.round(Math.random())]);
+            });
+        });
+    })(window, document, jQuery);
+</script>
+
+</body>
+</html>

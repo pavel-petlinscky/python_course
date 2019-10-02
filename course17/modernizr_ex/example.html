@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script
+        type="application/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/3.5.0/modernizr.js"></script>
+
+    <style>
+        .container {
+            height: 150px;
+            background: red;
+        }
+
+        .rgba .container .opatique {
+            background-color: rgba(13, 13, 155, 0.5);
+        }
+
+        .no-js .container .opatique, .no-rgba .container .opatique {
+            background-color: rgb(13, 13, 155);
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+    <div class="opatique">
+        Some text
+    </div>
+</div>
+
+<script type="application/javascript">
+    'use strict';
+    (function (window, document, Modernizr) {
+        document.addEventListener('DOMContentLoaded', function() {
+            var elements = null;
+            if (!Modernizr.queryselector) {
+                elements = document.querySelectorAll('.container .opatique');
+                console.log('queryselector');
+            } else {
+                var container = document.getElementsByClassName('container')[0];
+                elements = container.getElementsByClassName('opatique');
+                console.log('fallback');
+            }
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].style.color = 'white';
+            }
+        });
+    })(window, document, Modernizr);
+</script>
+
+</body>
+</html>
