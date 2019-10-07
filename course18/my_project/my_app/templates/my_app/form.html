@@ -1,0 +1,23 @@
+{% extends "my_app/_base.html" %}
+
+{% block content %}
+  <div>
+    <h2 class="my-label">My first django form!</h2>
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <form action="{% url 'form' %}" method="POST">
+        {% csrf_token %}
+
+        {{ form }}
+
+        <input type="submit" value="Submit" >
+    </form>
+  </div>
+{% endblock %}
