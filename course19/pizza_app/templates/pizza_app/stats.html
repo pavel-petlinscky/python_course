@@ -1,0 +1,13 @@
+{% extends 'pizza_app/_base.html' %}
+
+{% block content %}
+
+<p>Pizzas created: {{ params.count }}</p>
+<p>Average extra ingredients on pizza: {{ params.average_extras }}</p>
+
+<p>Today pizzas created: {{ params.today_pizzas }}</p>
+<p>Today pizzas delivered: {{ params.today_delivered }}</p>
+
+<p>Average delivery time: {{ params.average_delivery_time }}</p>
+
+{% endblock %}

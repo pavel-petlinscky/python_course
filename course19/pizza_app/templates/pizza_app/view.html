@@ -1,0 +1,47 @@
+{% extends 'pizza_app/_base.html' %}
+
+{% block content %}
+
+<div>
+    <p>Name: {{ pizza.kind }}</p>
+    <p>Size: {{ pizza.size }}</p>
+
+    <p>Delivery address: {{ pizza.delivery.full }}</p>
+
+    <p>Ingredients:</p>
+    <ul>
+    {% for ingredient in pizza.kind.ingredients.all %}
+        {% if ingredient not in pizza.exclude.all %}
+        <li>{{ ingredient.name }}</li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+
+    <p>Extra</p>
+    <ul>
+    {% for ingredient in pizza.extra.all %}
+        <li>{{ ingredient.name }}</li>
+    {% endfor %}
+    </ul>
+
+    <p>Excluded</p>
+    <ul>
+    {% for ingredient in pizza.exclude.all %}
+        <li>{{ ingredient.name }}</li>
+    {% endfor %}
+    </ul>
+
+    <p>Comment: {{ pizza.comment }}</p>
+
+    <hr />
+
+    <p>Status: {{ pizza.delivered|yesno:"Delivered,Delivering,WHAT?" }}</p>
+    <p>Created: {{ pizza.date_created }}</p>
+    <p>Delivered: {{ pizza.date_delivered|default_if_none:"Not yet" }}</p>
+
+    {% if not pizza.delivered %}
+        <a href="{% url 'pizza:close' pizza.id %}">Mark delivered</a><br>
+    {% endif %}
+</div>
+
+{% endblock %}
