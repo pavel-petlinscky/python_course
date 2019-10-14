@@ -1,0 +1,8 @@
+Django>=2.2
+ipython
+django_extensions
+django-debug-toolbar
+pytz
+sqlparse
+wheel
+django-queryinspect
