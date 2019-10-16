@@ -1,0 +1,6 @@
+  {% if user.is_authenticated %}
+    {{ user }}
+      <a href="{% url 'pizza_auth_app:logout' %}">Logout</a><br>
+  {% else %}
+      <a href="{% url 'pizza_auth_app:login' %}">Login</a> or <a href="{% url 'pizza_auth_app:register' %}">register</a><br>
+  {% endif %}
