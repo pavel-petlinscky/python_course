@@ -1,0 +1,15 @@
+{% extends 'pizza_app/_base.html' %}
+
+{% block content %}
+  <a href="{% url 'pizza:stats' %}">Pizza stats</a><br>
+  <a href="{% url 'pizza:create' %}">Create new</a>
+
+  <ul>
+  {% for pizza in pizzas %}
+      <li><a href="{% url 'pizza:view' pizza.id %}">{{ pizza }}</a></li>
+  {% endfor %}
+  </ul>
+
+{% endblock %}
+{% block nav %}
+{% endblock %}

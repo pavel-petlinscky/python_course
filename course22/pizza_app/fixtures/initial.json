@@ -1,0 +1,95 @@
+[
+  {
+    "model": "pizza_app.PizzaSize",
+    "pk": 1,
+    "fields": {
+      "size": "SM"
+    }
+  },
+  {
+    "model": "pizza_app.PizzaSize",
+    "pk": 2,
+    "fields": {
+      "size": "MD"
+    }
+  },
+  {
+    "model": "pizza_app.PizzaSize",
+    "pk": 3,
+    "fields": {
+      "size": "XL"
+    }
+  },
+  {
+    "model": "pizza_app.PizzaIngredient",
+    "pk": 1,
+    "fields": {
+      "name": "Cheese"
+    }
+  },
+  {
+    "model": "pizza_app.PizzaIngredient",
+    "pk": 2,
+    "fields": {
+      "name": "Ham"
+    }
+  },
+  {
+    "model": "pizza_app.PizzaIngredient",
+    "pk": 3,
+    "fields": {
+      "name": "Olives"
+    }
+  },
+  {
+    "model": "pizza_app.PizzaIngredient",
+    "pk": 4,
+    "fields": {
+      "name": "Tomato"
+    }
+  },
+  {
+    "model": "pizza_app.PizzaIngredient",
+    "pk": 5,
+    "fields": {
+      "name": "Onion"
+    }
+  },
+  {
+    "model": "pizza_app.PizzaIngredient",
+    "pk": 6,
+    "fields": {
+      "name": "Bacon"
+    }
+  },
+  {
+    "model": "pizza_app.PizzaIngredient",
+    "pk": 7,
+    "fields": {
+      "name": "Chicken"
+    }
+  },
+  {
+    "model": "pizza_app.PizzaIngredient",
+    "pk": 8,
+    "fields": {
+      "name": "Pineapples"
+    }
+  },
+  {
+    "model": "pizza_app.PizzaMenuItem",
+    "pk": 1,
+    "fields": {
+      "name": "Ham-and-Cheese",
+      "ingredients": [1, 2, 3, 5]
+    }
+  },
+  {
+    "model": "pizza_app.PizzaMenuItem",
+    "pk": 2,
+    "fields": {
+      "name": "Vegetarian",
+      "ingredients": [1, 3, 4, 5]
+    }
+  }
+]
