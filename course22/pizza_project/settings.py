@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # debug:
-    #'debug_toolbar',
+    'debug_toolbar',
 
     # rest:
     'rest_framework',
@@ -59,7 +59,7 @@ INTERNAL_IPS = [
 
 MIDDLEWARE = [
     # debug:
-    #'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'qinspect.middleware.QueryInspectMiddleware',
 
     # basic:
@@ -238,11 +238,22 @@ LOGGING = {
     }
 }
 
-import raven
+# import raven
+#
+# RAVEN_CONFIG = {
+#     'dsn': 'https://2f3e7157aec648948ee0d87ecc8c0617:ce7e180db3fe4a83a2de51b2fda14b78@sentry.io/1186466',
+#     # If you are using git, you can also automatically configure the
+#     # release based on the git info.
+#     'release': raven.fetch_git_sha(os.path.abspath(os.pardir)),
+# }
 
-RAVEN_CONFIG = {
-    'dsn': 'https://2f3e7157aec648948ee0d87ecc8c0617:ce7e180db3fe4a83a2de51b2fda14b78@sentry.io/1186466',
-    # If you are using git, you can also automatically configure the
-    # release based on the git info.
-    'release': raven.fetch_git_sha(os.path.abspath(os.pardir)),
-}
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+
+sentry_sdk.init(
+    dsn="https://7e11af9e80124927969c3b88fe59cfba@sentry.io/1785628",
+    integrations=[DjangoIntegration()]
+)
