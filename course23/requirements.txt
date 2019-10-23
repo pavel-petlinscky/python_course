@@ -1,0 +1,21 @@
+Django>=2.2
+django-debug-toolbar>=1.9.1
+pytz
+sqlparse
+wheel
+django-queryinspect>=1.0.0
+
+djangorestframework>=3.8
+raven
+
+# tests
+pytest==5.2.1
+#pytest-quickcheck
+hypothesis
+pytest-mock
+pytest-colordots
+pytest-cov
+pytest-django
+pytest-pep8
+pytest-mypy
+
