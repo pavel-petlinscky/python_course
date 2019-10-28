@@ -1,0 +1,28 @@
+Django>=2.2
+django-debug-toolbar>=1.9.1
+pytz
+sqlparse
+wheel
+django-queryinspect>=1.0.0
+
+djangorestframework>=3.7.3
+raven
+
+# Celery
+#celery==3.1.26.post2
+celery>=4.3
+django-celery
+django-celery-beat
+django-celery-results
+redis
+
+# tests
+pytest
+pytest-quickcheck
+hypothesis
+pytest-mock
+pytest-colordots
+pytest-cov
+pytest-django
+pytest-pep8
+

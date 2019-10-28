@@ -1,0 +1,2 @@
+celery --app=pizza_project.celery_app:app worker -E -B
+python manage.py celerycam
