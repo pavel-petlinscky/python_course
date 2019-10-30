@@ -1,0 +1,68 @@
+version: '3.7'
+
+services:
+  web:
+    restart: always
+    build: ./
+    expose:
+      - "8000"
+    links:
+      - postgres:postgres
+      - redis:redis
+    volumes:
+      - web_app:/usr/src/app
+      - web_static:/srv/starter/staticfiles/
+    env_file: .env
+    environment:
+      DEBUG: 'true'
+
+  nginx:
+    restart: always
+    build: ./nginx/
+    env_file: .env
+    ports:
+      - "80:80"
+    volumes:
+      - nginx_static:/www/static
+      - web_static:/srv/starter/staticfiles/
+#    volumes_from:
+#      - web
+    links:
+      - web:web
+
+  postgres:
+    restart: always
+    image: postgres:latest
+    env_file: .env
+    ports:
+      - "5432:5432"
+    volumes:
+      - /Users/p.petlinsky/workspace/tceh/python_course/course25/pgdata:/var/lib/postgresql/data/
+      - pg_backups:/var/lib/postgresql/pg_backups
+
+  redis:
+    restart: always
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 50M
+        reservations:
+          cpus: '0.25'
+          memory: 20M
+
+volumes:
+  pgdata: {}
+  pg_backups: {}
+  redisdata: {}
+  web_app: {}
+  web_static: {}
+  nginx_static: {}
+
+networks:
+  dns:
